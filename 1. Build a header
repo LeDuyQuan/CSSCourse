@@ -1,0 +1,11 @@
+1. Bước đầu tiên phải thiết lập lại cơ bản: để đảm bảo mọi browser hiển thị web in same way
+- Nhưng ngày nay các trang web ngày càng tốt hơn và nhất quán với nhau hơn
+
+* {             // universal selector
+  margin: 0;    //một số browser apply margin hay padding cho một số element
+  padding: 0;
+  box-sizing: border-box
+}
+
+body {    // khai báo trong body thì các child của body sẽ kế thừa được (hiệu quả hơn universal selector)
+}
