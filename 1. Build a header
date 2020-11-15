@@ -18,7 +18,7 @@ body {                      // khai báo trong body thì các child của body s
 }
 
 header {
-  height: 95vh;                           // với mọi điểm thì chiều cao luôn là 95% viewport height (khung nhìn)
+  height: 95vh;                           // với resize thì chiều cao luôn là 95% viewport height (khung nhìn)
   background-image: url(../img/hero.jpg)  // chỉ cần gõ backi or backs, vscode sẽ suggest luôn background-image và background-size
   background-size: cover;                 // cho hình ảnh fit với box khi resize
   background-position: top;               // khi resize màn hình thì top image ko bị cắt xén đi (luôn cố định)
@@ -27,7 +27,37 @@ header {
   background-image: linear-gradient(to right, #7ed56f, #28b485), url(../img/hero.jpg); // từ light blue  -> dark blue, cái đầu sẽ on top
   // ta điều chỉnh lại opacity cho 2 màu trong linear-gradient xuống 80% (hover vào 2 màu và điều chỉnh)
   
-  clip-path: polygon(0 0, 100% 0)         // cho phép chỉ định 1 vùng hiển thị thay vì hiển thị toàn bộ
-                                          // trục X,Y vẽ từ góc trên bên trái. 
-                                          // xác định tọa độ theo chiều kim đồng hồ A (0, 0) B(từ A->B là 100%, 0)
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%)      // cho phép chỉ định 1 vùng hiển thị thay vì hiển thị toàn bộ
+                                                          // trục X,Y vẽ từ GÓC TRÊN BÊN TRÁI  
+                                          // xác định tọa độ theo chiều kim đồng hồ A(0, 0), B(100%, 0), C(100%, 75vh), D(0, 100%) đơn vị là độ dài
+                                          // có thể truy cập https://bennettfeely.com/clippy/ để tham khảo tọa độ của nhiều hình dạng khác
+} 
+
+
+2. Create logo on the backgroud
+<div class="logo-box">
+  <img src="img/logo-white.png" alt="Logo" class="logo" />      // alt dùng để mô tả image cho SEO, cũng phục vụ trong trường hợp image ko load đc
+</div>
+
+.logo-box {
+  position: absolute;     // chúng ta có thể sử dụng top, bottom, right, left để put chính xác vị trí mà ta muốn
+  top: 40px;              // set 40px tính từ parent element (parent element set position là relative)
+  left: 40px;
 }
+
+=> set thêm postion vào .header
+.header {
+  ...
+  postion: relative;
+}
+
+.logo{
+  .height: 30px;   // ko cần chỉ định cả width và height cùng lúc, nó sẽ theo tỉ lệ tương ứng
+}
+
+
+3. Create heading text on the background
+<h1 class="heading-primary">
+  <span class="heading-primary-main">Outdoor</span>
+  <span class="heading-primary-sub">is where life happen</span>
+</h1>
