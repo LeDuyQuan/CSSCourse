@@ -26,4 +26,8 @@ header {
   // sau đó ta muốn add 1 background gradient màu đè lên, ta chỉnh sửa lại background-image
   background-image: linear-gradient(to right, #7ed56f, #28b485), url(../img/hero.jpg); // từ light blue  -> dark blue, cái đầu sẽ on top
   // ta điều chỉnh lại opacity cho 2 màu trong linear-gradient xuống 80% (hover vào 2 màu và điều chỉnh)
+  
+  clip-path: polygon(0 0, 100% 0)         // cho phép chỉ định 1 vùng hiển thị thay vì hiển thị toàn bộ
+                                          // trục X,Y vẽ từ góc trên bên trái. 
+                                          // xác định tọa độ theo chiều kim đồng hồ A (0, 0) B(từ A->B là 100%, 0)
 }
