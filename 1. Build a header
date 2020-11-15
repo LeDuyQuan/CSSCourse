@@ -1,11 +1,29 @@
-1. Bước đầu tiên phải thiết lập lại cơ bản: để đảm bảo mọi browser hiển thị web in same way
-- Nhưng ngày nay các trang web ngày càng tốt hơn và nhất quán với nhau hơn
+1. Bước đầu tiên phải thiết lập lại cơ bản: để đảm bảo mọi browser hiển thị web in the exact same way
+- Nhưng ngày nay các trang web ngày càng tốt hơn và nhất quán với nhau hơn nên thiết lập một số cái chính thôi
 
-* {             // universal selector
-  margin: 0;    //một số browser apply margin hay padding cho một số element
+* {                         // universal selector
+  margin: 0;                // một số browser có apply default margin hay padding cho một số element nên cần reset lại
   padding: 0;
-  box-sizing: border-box
+  box-sizing: border-box;   // cho phép weight và height của 1 element bao trọn luôn padding và border
+                            // vì khi thêm border có thể tăng weight và height ngoài ý muốn
 }
 
-body {    // khai báo trong body thì các child của body sẽ kế thừa được (hiệu quả hơn universal selector)
+body {                      // khai báo trong body thì các child của body sẽ kế thừa được (hiệu quả hơn universal selector)
+  font-family: 'Lato', sans-serif,
+  font-weight: 400;
+  font-size: 16px;
+  line-height:1.7;          // lớn hơn 1.7 lần so với chiều cao dòng đc xác định trước đó
+  color: #777;
+  padding: 30px;            // tạo khoảng trống border cho toàn bộ web
+}
+
+header {
+  height: 95vh;                           // với mọi điểm thì chiều cao luôn là 95% viewport height (khung nhìn)
+  background-image: url(../img/hero.jpg)  // chỉ cần gõ backi or backs, vscode sẽ suggest luôn background-image và background-size
+  background-size: cover;                 // cho hình ảnh fit với box khi resize
+  background-position: top;               // khi resize màn hình thì top image ko bị cắt xén đi (luôn cố định)
+  
+  // sau đó ta muốn add 1 background gradient màu đè lên, ta chỉnh sửa lại background-image
+  background-image: linear-gradient(to right, #7ed56f, #28b485), url(../img/hero.jpg); // từ light blue  -> dark blue, cái đầu sẽ on top
+  // ta điều chỉnh lại opacity cho 2 màu trong linear-gradient xuống 80% (hover vào 2 màu và điều chỉnh)
 }
