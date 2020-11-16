@@ -52,7 +52,7 @@ header {
 }
 
 .logo{
-  .height: 30px;   // ko cần chỉ định cả width và height cùng lúc, nó sẽ theo tỉ lệ tương ứng
+  height: 30px;   // ko cần chỉ định cả width và height cùng lúc, nó sẽ theo tỉ lệ tương ứng
 }
 
 
@@ -61,3 +61,63 @@ header {
   <span class="heading-primary-main">Outdoor</span>
   <span class="heading-primary-sub">is where life happen</span>
 </h1>
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.heading-primary-main {
+  display: block;          // chiếm toàn bộ width mà element sẵn có, tạo line break
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;    // tạo khoảng cách giữa các chữ cái
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4;
+}
+
+- Bây giờ chúng ta sẽ put đoạn text (class heading-primary) move vào giữa màn hình: bỏ khối heading-primary vào text-box
+.text-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;                          // content luôn lấy gốc tọa độ là góc trên bên trái, nên cần trừ 50% width và height của chính element này để ra vị trí mong muốn
+  transform: translate(-50%, -50%)    // dịch chuyển nội dung của chính element đó, ko liên quan tới parent element
+}
+
+
+4. CSS animations for heading
+- Có 2 loại animations trong CSS
++ 1 loại là chỉ cần sử dụng thuộc tính transition: để chuyển đôi animate trên 1 event như hover
++ sử dụng keyframes
+
+- Ta muốn tạo hiệu ứng animation từ trái qua cho heading-primary-main
+@keyframes moveInLeft {   // đặt tên cho animation. Sau đó chỉ định what happen trong từng thời điểm của animation.
+   0% {                   // 0% tương đương với animation bắt đầu
+      opacity: 0;
+      transform: translateX(-100px);        // set element dịch qua trái 100px
+   }  
+   80% {
+      transform: translateX(10px)
+   }
+   100% {                 // animation finish
+      opacity: 1;
+      transform: translate(0);
+   }
+}
+
+- Và để animation work thì khai báo 2 properties nữa vào trong heading-primary-main
+.heading-primary-main {
+  ...
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+}
+
+
+
+
+
