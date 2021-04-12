@@ -7,4 +7,5 @@
 - Lấp đầy không gian trống với flex-grow: 1 (chia đều không gian giữa các item)
 - Có thể set riêng flex-grow: 2,3,4,.. cho từng item để item đó giãn hơn so với item khác
 
-3.
+3. Flex Shrink (ngược lại của grow)
+- Set riêng cho từng item: khiến item đó nhỏ đi
