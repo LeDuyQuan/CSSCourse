@@ -4,8 +4,20 @@
 - Muốn order 1 item lên đầu tiên thì có thể se order: -1
 
 2. Flex grow
+- Default: flex-grow: 0
 - Lấp đầy không gian trống với flex-grow: 1 (chia đều không gian giữa các item)
 - Có thể set riêng flex-grow: 2,3,4,.. cho từng item để item đó giãn hơn so với item khác
 
 3. Flex Shrink (ngược lại của grow)
+- Default: flex-shrink: 1
 - Set riêng cho từng item: khiến item đó nhỏ đi
+- Nếu set flex-shrink: 0 thì item đó sẽ có kích thước ban đầu
+
+4. Flex basic
+- Set kích thước ban đầu của item trước khi không gian được phân bố
+- Có nhiều điểm tương đồng với set width và có thể dụng thay thế
+- VD: dùng chung với flex-grow: 0 ở flex-container và flex-basic: 10rem ở item 1 -> các item lấp đầy không gian, riêng item 1 có kích thước 10rem
+
+5 Shorthand
+- flex: flex-grow flex-shrink flex-basic
+- Default: flex: 0 1 auto
